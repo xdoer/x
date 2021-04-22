@@ -1,0 +1,30 @@
+{
+  "name": "example-react",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "echo 1"
+  },
+  "dependencies": {
+    "react": "^17.0.0",
+    "react-dom": "^17.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "@vitejs/plugin-react-refresh": "^1.1.0",
+    "typescript": "^4.1.2",
+    "vite": "^2.0.0-beta.12",
+    "@xdoer/t-base": "0.1.0",
+    "@xdoer/t-check": "0.1.0",
+    "@xdoer/t-cookie": "0.1.0",
+    "@xdoer/t-dom": "0.1.0",
+    "@xdoer/t-file": "0.1.0",
+    "@xdoer/t-route": "0.1.0",
+    "@xdoer/t-store": "0.1.0",
+    "@xdoer/t-time": "0.1.0",
+    "@xdoer/t-timer": "0.1.0",
+    "@xdoer/t-worker": "0.1.0",
+    "@xdoer/r-countdown": "0.1.0"
+  }
+}
