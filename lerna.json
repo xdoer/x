@@ -8,8 +8,9 @@
         "*.md",
         "*.tsconfg.json"
       ],
-      "message": "chore(release): publish"
+      "message": "chore(release): publish",
+      "registry": "http://registry.npmjs.org"
     }
   },
-  "version": "0.0.4"
+  "version": "0.0.5"
 }

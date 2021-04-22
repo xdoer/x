@@ -1,5 +1,5 @@
 {
-  "version": "0.0.4",
+  "version": "0.0.5",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -44,7 +44,7 @@
     }
   ],
   "dependencies": {
-    "@xdoer/t-base": "^0.0.4"
+    "@xdoer/t-base": "^0.0.5"
   },
-  "gitHead": "2b5ae35773752a21800e3281581a059ca0326401"
+  "gitHead": "093f45a00510d5ef04ec2c2f59c8e69629d78876"
 }
