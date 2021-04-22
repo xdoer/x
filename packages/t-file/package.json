@@ -1,5 +1,5 @@
 {
-  "version": "0.0.5",
+  "version": "0.1.0",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -43,5 +43,5 @@
       "limit": "10 KB"
     }
   ],
-  "gitHead": "093f45a00510d5ef04ec2c2f59c8e69629d78876"
+  "gitHead": "85e2a06b3710611d85ec77ec6e904a879861eace"
 }
