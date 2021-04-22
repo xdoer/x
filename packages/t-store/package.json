@@ -45,5 +45,6 @@
   ],
   "dependencies": {
     "@xdoer/t-base": "^0.0.1"
-  }
+  },
+  "gitHead": "dedc5bed391dbe4662db408dc38fdb59ecfabceb"
 }

@@ -50,5 +50,6 @@
     "@types/react": "^17.0.3",
     "react": "^17.0.2",
     "tslib": "^2.2.0"
-  }
+  },
+  "gitHead": "dedc5bed391dbe4662db408dc38fdb59ecfabceb"
 }

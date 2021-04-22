@@ -42,5 +42,6 @@
       "path": "dist/t-time.esm.js",
       "limit": "10 KB"
     }
-  ]
+  ],
+  "gitHead": "dedc5bed391dbe4662db408dc38fdb59ecfabceb"
 }
