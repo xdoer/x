@@ -1,5 +1,5 @@
 {
-  "version": "0.0.2",
+  "version": "0.0.3",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -51,5 +51,5 @@
     "react": "^17.0.2",
     "tslib": "^2.2.0"
   },
-  "gitHead": "dedc5bed391dbe4662db408dc38fdb59ecfabceb"
+  "gitHead": "206d57a30edd0dea96101898edffd071c540beda"
 }
