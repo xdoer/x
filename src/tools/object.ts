@@ -1,9 +1,9 @@
 /**
  * 判断元素类型
  */
-export const is = (ele) => {
+export const is = (ele: any) => {
   const type = Object.prototype.toString.call(ele)
-  return type.match(/^\[object\s([A-Za-z]+)\]$/)[1].toLowerCase()
+  return type.match(/^\[object\s([A-Za-z]+)\]$/)![1].toLowerCase()
 }
 
 /**

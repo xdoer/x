@@ -1,4 +1,4 @@
-import { elementType } from './object'
+import { is } from './object'
 
 /**
  * 判断字符串是整数
@@ -55,7 +55,7 @@ export const isEmail = (value: string) => /^[0-9A-Za-z]+(\.[0-9A-Za-z]+)?@[0-9A-
  * undefined、null、0、''、 {}、[] 判断为空
  */
 export const isEmpty = (data: any): boolean => {
-  switch (elementType(data)) {
+  switch (is(data)) {
     case 'undefined':
     case 'null':
     case 'string':
