@@ -26,7 +26,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "name": "@prequest/x",
+  "name": "@xdoer/x",
   "author": "xdoer",
   "browserslist": [
     "> 5%"
