@@ -60,7 +60,7 @@ export const createScript = (url: string, callback?: () => void) => {
   _script.async = true
   _script.src = url
 
-  _script.onload = function() {
+  _script.onload = function () {
     callback && callback()
   }
   document.body.appendChild(_script)

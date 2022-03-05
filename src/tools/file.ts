@@ -9,7 +9,7 @@ export const convertImgUrlToBase64 = (imgURL: string, ratio = 0.1): Promise<stri
     const img = new Image()
     img.setAttribute('crossOrigin', 'Anonymous')
     img.src = imgURL
-    img.onload = function() {
+    img.onload = function () {
       const canvas = document.createElement('canvas')
       canvas.width = img.width
       canvas.height = img.height
@@ -22,7 +22,7 @@ export const convertImgUrlToBase64 = (imgURL: string, ratio = 0.1): Promise<stri
       let dataURL = canvas.toDataURL('image/jpeg', ratio)
       resolve(dataURL)
     }
-    img.onerror = function(e) {
+    img.onerror = function (e) {
       reject('图片加载失败,错误详情:' + e)
     }
   })
@@ -57,14 +57,14 @@ export const convertURLToBlob = (imgURL: string, callback?: (data: Blob) => void
   http.responseType = 'blob'
   http.send()
   if (callback) {
-    http.onload = function() {
+    http.onload = function () {
       if (this.status === 200 || this.status === 0) {
         callback(this.response)
       }
     }
   } else {
     return new Promise((resolve, reject) => {
-      http.onload = function() {
+      http.onload = function () {
         if (this.status === 200 || this.status === 0) {
           resolve(this.response)
         } else {

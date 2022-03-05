@@ -10,19 +10,8 @@
     "node": ">=10"
   },
   "scripts": {
-    "start": "tsdx watch --verbose",
-    "build": "tsdx build --verbose",
-    "test": "tsdx test",
-    "lint": "tsdx lint",
-    "prepare": "npm run build",
-    "size": "size-limit",
-    "analyze": "size-limit --why",
+    "build": "gulp",
     "format": "prettier --write \"./src/**/*\""
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "tsdx lint"
-    }
   },
   "publishConfig": {
     "access": "public"
@@ -33,26 +22,17 @@
     "> 5%"
   ],
   "module": "dist/x.esm.js",
-  "size-limit": [
-    {
-      "path": "dist/x.cjs.production.min.js",
-      "limit": "10 KB"
-    },
-    {
-      "path": "dist/x.esm.js",
-      "limit": "10 KB"
-    }
-  ],
   "dependencies": {
     "@xdoer/countdown": "^1.0.6"
   },
   "devDependencies": {
-    "@size-limit/preset-small-lib": "^4.10.2",
     "@types/react": "^17.0.39",
     "husky": "^7.0.4",
-    "size-limit": "^4.10.2",
-    "tsdx": "^0.14.1",
     "tslib": "^2.2.0",
-    "typescript": "4.5.4"
+    "typescript": "4.5.4",
+    "gulp-cli": "2.3.0",
+    "gulp": "4.0.2",
+    "prettier": "^2.5.1",
+    "gulp-typescript": "6.0.0-alpha.1"
   }
 }
