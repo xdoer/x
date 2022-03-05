@@ -23,7 +23,7 @@ export const shuffle = (array: Array<any>) => {
   let j, x, i
   for (i = a.length; i; i--) {
     j = Math.floor(Math.random() * i) // 取随机数组下标
-    x = a[i - 1]  // 取最后一个元素的值
+    x = a[i - 1] // 取最后一个元素的值
     a[i - 1] = a[j] // 列表随机位置的值赋值到最后一个元素
     a[j] = x
   }

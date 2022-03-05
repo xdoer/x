@@ -3,7 +3,7 @@ export class Cookie {
 
   constructor() {
     this.cookiesMap = (() => {
-      const cookies: Array<Array<string>> = document.cookie.split(';').map(n => {
+      const cookies: Array<Array<string>> = document.cookie.split(';').map((n) => {
         const [first, ...Other] = n.split('=')
         return [first.trim(), Other.join('=')]
       })
@@ -18,8 +18,8 @@ export class Cookie {
   }
 
   set(key: string, value: string, expired: number = 24 * 60 * 60 * 1000) {
-    const date = new Date(+new Date() + expired);
-    document.cookie = key + "=" + encodeURIComponent(value) + ";expires=" + date.toUTCString();
+    const date = new Date(+new Date() + expired)
+    document.cookie = key + '=' + encodeURIComponent(value) + ';expires=' + date.toUTCString()
   }
 
   has(key: string) {

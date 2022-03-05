@@ -18,7 +18,7 @@ export const addClassName = (element: HTMLElement, value: string) => {
 export const getScrollPosition = () => {
   return {
     top: document.documentElement.scrollTop || document.body.scrollTop,
-    left: document.documentElement.scrollLeft || document.body.scrollLeft
+    left: document.documentElement.scrollLeft || document.body.scrollLeft,
   }
 }
 
@@ -28,7 +28,7 @@ export const getScrollPosition = () => {
 export const getWindowSize = () => {
   return {
     width: globalThis.innerWidth || document.documentElement.clientWidth,
-    height: globalThis.innerHeight || document.documentElement.clientHeight
+    height: globalThis.innerHeight || document.documentElement.clientHeight,
   }
 }
 
@@ -42,7 +42,7 @@ export const insertAfter = (newElement: HTMLElement, targetElement: HTMLElement)
 
   if (!parent) return
 
-  if (parent.lastChild == targetElement) {
+  if (parent.lastChild === targetElement) {
     parent.appendChild(newElement)
   } else {
     parent.insertBefore(newElement, targetElement.nextSibling)
@@ -60,7 +60,7 @@ export const createScript = (url: string, callback?: () => void) => {
   _script.async = true
   _script.src = url
 
-  _script.onload = function () {
+  _script.onload = function() {
     callback && callback()
   }
   document.body.appendChild(_script)
@@ -85,13 +85,16 @@ export const getDomPath = (ele: HTMLElement): string => {
   // 处理类
   if (ele.className) {
     const classList: any = ele.classList
-    const classDesc = ele.tagName.toLowerCase() + [...classList].map(n => '.' + n).join('')
+    const classDesc = ele.tagName.toLowerCase() + [...classList].map((n) => '.' + n).join('')
     if (parentNodeIsCommonNode) {
       const nodes = ele.parentNode.querySelectorAll(classDesc)
       if (nodes.length > 1) {
         for (let i = 0; i < nodes.length; i++) {
           if (nodes[i] === ele) {
-            return getDomPath(ele.parentElement) + `${(parentNodeIsCommonNode ? prefix : '') + classDesc}:nth-of-type(${i + 1})`
+            return (
+              getDomPath(ele.parentElement) +
+              `${(parentNodeIsCommonNode ? prefix : '') + classDesc}:nth-of-type(${i + 1})`
+            )
           }
         }
       } else {
@@ -108,7 +111,10 @@ export const getDomPath = (ele: HTMLElement): string => {
     const nodes = ele.parentNode.children
     for (let i = 0; i < nodes.length; i++) {
       if (nodes[i] === ele) {
-        return getDomPath(ele.parentElement) + `${parentNodeIsCommonNode ? prefix : ''}${ele.tagName.toLowerCase()}:nth-child(${i + 1}) `
+        return (
+          getDomPath(ele.parentElement) +
+          `${parentNodeIsCommonNode ? prefix : ''}${ele.tagName.toLowerCase()}:nth-child(${i + 1}) `
+        )
       }
     }
   } else {

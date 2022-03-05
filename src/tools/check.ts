@@ -43,12 +43,16 @@ export const isNegativeFloat = (num: string) => /^-\d+\.\d+$/.test(num)
 /**
  * 判断是身份证
  */
-export const isIdCard = (value: string) => /^[1-9]\d{7}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}$|^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}([0-9]|X)$/.test(value)
+export const isIdCard = (value: string) =>
+  /^[1-9]\d{7}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}$|^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}([0-9]|X)$/.test(
+    value,
+  )
 
 /**
  * 判断是邮箱
  */
-export const isEmail = (value: string) => /^[0-9A-Za-z]+(\.[0-9A-Za-z]+)?@[0-9A-Za-z]+(\.[0-9A-Za-z]+)?\.[A-Za-z]+/.test(value)
+export const isEmail = (value: string) =>
+  /^[0-9A-Za-z]+(\.[0-9A-Za-z]+)?@[0-9A-Za-z]+(\.[0-9A-Za-z]+)?\.[A-Za-z]+/.test(value)
 
 /**
  * 数据是否为空

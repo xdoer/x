@@ -14,8 +14,19 @@ export interface UseCountDown {
   manager?: CountDownManager
 }
 
-export const useCountDown: UseCountDown = ({ endTime, onEnd, server = false, manager, interval = 1000 }: CountDownHookOpt) => {
-  const [dateMeta, setDateMeta] = useState<CountDownDateMeta>({ d: 0, h: 0, m: 0, s: 0 })
+export const useCountDown: UseCountDown = ({
+  endTime,
+  onEnd,
+  server = false,
+  manager,
+  interval = 1000,
+}: CountDownHookOpt) => {
+  const [dateMeta, setDateMeta] = useState<CountDownDateMeta>({
+    d: 0,
+    h: 0,
+    m: 0,
+    s: 0,
+  })
   const countDownTimer = useRef<CountDown | null>()
 
   function createCountDownTimer() {
@@ -25,7 +36,7 @@ export const useCountDown: UseCountDown = ({ endTime, onEnd, server = false, man
         endTime,
         onEnd,
         onStep: setDateMeta,
-        manager: server ? (manager || useCountDown.manager) : undefined
+        manager: server ? manager || useCountDown.manager : undefined,
       })
     }
   }

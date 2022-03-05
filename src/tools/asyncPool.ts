@@ -1,9 +1,5 @@
 // refer: https://github.com/rxaviers/async-pool/blob/master/lib/es7.js
-export const asyncPool = async <T, N>(
-  poolLimit: number,
-  array: T[],
-  iteratorFn: (i: T, list: T[]) => Promise<N>
-) => {
+export const asyncPool = async <T, N>(poolLimit: number, array: T[], iteratorFn: (i: T, list: T[]) => Promise<N>) => {
   const ret: Promise<N>[] = []
   const executing: Promise<void>[] = []
 

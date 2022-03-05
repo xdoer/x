@@ -46,9 +46,9 @@ export const deepClone: (data: any, weakMap?: WeakMap<any, any>) => any = (data 
   } else if (eleType === 'date') {
     return new Date(data)
   } else if (eleType === 'regexp') {
-    const reFlags = /\w*$/;
-    const result = new data.constructor(data.source, reFlags.exec(data));
-    result.lastIndex = data.lastIndex;
+    const reFlags = /\w*$/
+    const result = new data.constructor(data.source, reFlags.exec(data))
+    result.lastIndex = data.lastIndex
     return result
   } else {
     return data
@@ -58,7 +58,7 @@ export const deepClone: (data: any, weakMap?: WeakMap<any, any>) => any = (data 
 /**
  * 数据类型树
  */
-export const typeTree: (data: any) => any = data => {
+export const typeTree: (data: any) => any = (data) => {
   const eleType = is(data)
   if (eleType === 'array') {
     let result = []
@@ -96,7 +96,7 @@ export const typeTree: (data: any) => any = data => {
 }
 
 // 解析数据类型树
-export const resolveTypeTree = ({ type, value }: { type: string, value: any }): any => {
+export const resolveTypeTree = ({ type, value }: { type: string; value: any }): any => {
   const data = value
   if (type === 'array') {
     let result = []

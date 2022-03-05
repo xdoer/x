@@ -38,7 +38,7 @@ export const calculationFloat = (num1: number, num2: number, action?: '+' | '-' 
     case '-':
       return (num1 - num2) / maxMultiple
     case '*':
-      return Number(int1 + (float1 || '')) * Number(int2 + (float2 || '')) / Math.pow(10, m + n)
+      return (Number(int1 + (float1 || '')) * Number(int2 + (float2 || ''))) / Math.pow(10, m + n)
     case '\\':
       return Number(int1 + (float1 || '')) / Number(int2 + (float2 || '')) / Math.pow(10, m + n)
     default:
@@ -52,7 +52,10 @@ export const calculationFloat = (num1: number, num2: number, action?: '+' | '-' 
 export const covertNumberToChinese = (num: number) => {
   const fraction = ['角', '分']
   const digit = ['零', '壹', '贰', '叁', '肆', '伍', '陆', '柒', '捌', '玖']
-  const unit = [['元', '万', '亿'], ['', '拾', '百', '仟']]
+  const unit = [
+    ['元', '万', '亿'],
+    ['', '拾', '百', '仟'],
+  ]
   let result = ''
   num = Math.abs(num)
   // 计算小数部分
@@ -80,7 +83,8 @@ export const covertNumberToChinese = (num: number) => {
     // 消除中间的零佰零仟等
     result = pattern.replace(/(零.)*零$/, '').replace(/^$/, '零') + unit[0][i] + result
   }
-  return result.replace(/(零.)*零元/, '元')
+  return result
+    .replace(/(零.)*零元/, '元')
     .replace(/(零.)+/g, '零')
     .replace(/^整$/, '零元整')
 }

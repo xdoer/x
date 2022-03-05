@@ -7,22 +7,22 @@
 export const convertImgUrlToBase64 = (imgURL: string, ratio = 0.1): Promise<string> => {
   return new Promise((resolve, reject) => {
     const img = new Image()
-    img.setAttribute("crossOrigin", "Anonymous")
+    img.setAttribute('crossOrigin', 'Anonymous')
     img.src = imgURL
-    img.onload = function () {
-      const canvas = document.createElement("canvas")
+    img.onload = function() {
+      const canvas = document.createElement('canvas')
       canvas.width = img.width
       canvas.height = img.height
-      const ctx = canvas.getContext("2d")
+      const ctx = canvas.getContext('2d')
       if (!ctx) return reject('can not find 2d context')
       ctx.drawImage(img, 0, 0, img.width, img.height)
       // const type = img.src.substring(img.src.lastIndexOf(".") + 1).toLowerCase()
       // let dataURL = canvas.toDataURL("image/" + type, 0.8)
       // IOS下jpeg之外的图片越压缩越大
-      let dataURL = canvas.toDataURL("image/jpeg", ratio)
-      resolve(dataURL);
+      let dataURL = canvas.toDataURL('image/jpeg', ratio)
+      resolve(dataURL)
     }
-    img.onerror = function (e) {
+    img.onerror = function(e) {
       reject('图片加载失败,错误详情:' + e)
     }
   })
@@ -33,14 +33,14 @@ export const convertImgUrlToBase64 = (imgURL: string, ratio = 0.1): Promise<stri
  * @param dataURL base64文件
  */
 export const convertBase64ToBlob = (dataURL: string): Promise<Blob> => {
-  const arr = dataURL.split(",") || []
+  const arr = dataURL.split(',') || []
   const mime = arr[0]!.match(/:(.*?);/)![1]
   const bstr = atob(arr[1])
   let n = bstr.length
   let u8arr = new Uint8Array(n)
 
   while (n--) {
-    u8arr[n] = bstr.charCodeAt(n);
+    u8arr[n] = bstr.charCodeAt(n)
   }
   return Promise.resolve(new Blob([u8arr], { type: mime }))
 }
@@ -57,15 +57,15 @@ export const convertURLToBlob = (imgURL: string, callback?: (data: Blob) => void
   http.responseType = 'blob'
   http.send()
   if (callback) {
-    http.onload = function () {
-      if (this.status == 200 || this.status === 0) {
+    http.onload = function() {
+      if (this.status === 200 || this.status === 0) {
         callback(this.response)
       }
     }
   } else {
     return new Promise((resolve, reject) => {
-      http.onload = function () {
-        if (this.status == 200 || this.status === 0) {
+      http.onload = function() {
+        if (this.status === 200 || this.status === 0) {
           resolve(this.response)
         } else {
           reject(this.response)

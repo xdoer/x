@@ -1,4 +1,4 @@
-import { resolveTypeTree, typeTree } from "./object"
+import { resolveTypeTree, typeTree } from './object'
 
 type StorageName = 'localStorage' | 'sessionStorage'
 
