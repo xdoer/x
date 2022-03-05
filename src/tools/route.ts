@@ -2,7 +2,7 @@
  * URL参数转对象
  * @param searchParams 字符串(默认location.search)
  */
-export const covertSearchParamsToObj = (searchParams: string = location.search) => {
+export const convertSearchParamsToObj = (searchParams: string = location.search) => {
   const obj: Record<string, string> = {}
   if (globalThis.URLSearchParams) {
     const params: any = new URLSearchParams(searchParams)
@@ -24,7 +24,7 @@ export const covertSearchParamsToObj = (searchParams: string = location.search) 
  * 对象转URL参数
  * @param searchObj 默认空对象
  */
-export const covertObjToSearchParams: (searchObj: Record<string, string>) => string = (searchObj = {}) => {
+export const convertObjToSearchParams: (searchObj: Record<string, string>) => string = (searchObj = {}) => {
   let searchParams = ''
   for (let i in searchObj) {
     searchParams = searchParams + `${i}=${encodeURI(searchObj[i])}&`
