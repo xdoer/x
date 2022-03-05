@@ -1,3 +1,6 @@
+export const noop = () => { }
+export const feedback = <T>(value: T) => value
+
 export * from './number'
 export * from './array'
 export * from './object'
