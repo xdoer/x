@@ -31,3 +31,8 @@ export const covertObjToSearchParams: (searchObj: Record<string, string>) => str
   }
   return searchParams.slice(0, -1)
 }
+
+// reference: https://github.com/axios/axios/blob/master/lib/helpers/isAbsoluteURL.js
+export function isAbsoluteURL(url: string) {
+  return /^([a-z][a-z\d\+\-\.]*:)?\/\//i.test(url)
+}

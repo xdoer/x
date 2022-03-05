@@ -1,11 +1,9 @@
 /**
  * 判断元素类型
  */
-export const elementType = (ele: any) => {
-  const typeStr = Object.prototype.toString.call(ele)
-  const reg = /^\[object\s([A-Za-z]+)\]$/
-  reg.test(typeStr)
-  return RegExp.$1.toLowerCase()
+export const is = (ele) => {
+  const type = Object.prototype.toString.call(ele)
+  return type.match(/^\[object\s([A-Za-z]+)\]$/)[1].toLowerCase()
 }
 
 /**
@@ -13,7 +11,7 @@ export const elementType = (ele: any) => {
  * 参考: https://juejin.im/post/5d6aa4f96fb9a06b112ad5b1
  */
 export const deepClone: (data: any, weakMap?: WeakMap<any, any>) => any = (data = {}, weakMap = new WeakMap()) => {
-  const eleType = elementType(data)
+  const eleType = is(data)
   if (eleType === 'array') {
     let result = []
     for (let i in data) {
@@ -61,7 +59,7 @@ export const deepClone: (data: any, weakMap?: WeakMap<any, any>) => any = (data 
  * 数据类型树
  */
 export const typeTree: (data: any) => any = data => {
-  const eleType = elementType(data)
+  const eleType = is(data)
   if (eleType === 'array') {
     let result = []
     for (let i in data) {
@@ -141,8 +139,8 @@ export const resolveTypeTree = ({ type, value }: { type: string, value: any }): 
  * @param data2 对比项2
  */
 export const deepEqual: (data1: any, data2: any) => boolean = (data1, data2) => {
-  const eleType = elementType(data1)
-  const eleType2 = elementType(data2)
+  const eleType = is(data1)
+  const eleType2 = is(data2)
   if (eleType !== eleType2) return false
   if (eleType === 'array') {
     if (data1.length !== data2.length) return false
@@ -175,4 +173,26 @@ export const deepEqual: (data1: any, data2: any) => boolean = (data1, data2) => 
   } else {
     return data1 === data2
   }
+}
+
+// deep merge common object
+export const merge = <T>(...args: (Record<string, any> | undefined)[]): T => {
+  return args.reduce((t, c) => {
+    if (!c) return t
+
+    const data = Object.entries(c)
+    const length = data.length
+
+    for (let i = 0; i < length; i++) {
+      const [key, value] = data[i]
+
+      if (is(value) === 'object') {
+        t[key] = merge(t[key], value)
+      } else {
+        Object.assign(t, { [key]: value })
+      }
+    }
+
+    return t
+  }, {} as any)
 }

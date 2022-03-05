@@ -1,4 +1,4 @@
-class Cookie {
+export class Cookie {
   cookiesMap: Map<string, string>
 
   constructor() {
@@ -14,12 +14,12 @@ class Cookie {
   }
 
   get(key: string) {
-    return unescape(this.cookiesMap.get(key) || '')
+    return decodeURIComponent(this.cookiesMap.get(key) || '')
   }
 
   set(key: string, value: string, expired: number = 24 * 60 * 60 * 1000) {
     const date = new Date(+new Date() + expired);
-    document.cookie = key + "=" + escape(value) + ";expires=" + date.toUTCString();
+    document.cookie = key + "=" + encodeURIComponent(value) + ";expires=" + date.toUTCString();
   }
 
   has(key: string) {
