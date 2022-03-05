@@ -1,5 +1,5 @@
 {
-  "version": "0.0.3",
+  "version": "0.0.4",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -23,7 +23,7 @@
   ],
   "module": "dist/x.esm.js",
   "dependencies": {
-    "@xdoer/countdown": "^1.0.6"
+    "@xdoer/countdown": "^2.0.0"
   },
   "devDependencies": {
     "@types/react": "^17.0.39",
