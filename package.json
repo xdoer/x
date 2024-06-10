@@ -32,13 +32,19 @@
     "> 5%"
   ],
   "module": "lib/esm/index.js",
+  "dependencies": {
+    "lodash.pick": "4.4.0",
+    "zustand": "^4.5.2"
+  },
   "devDependencies": {
     "@babel/cli": "^7.17.10",
     "@babel/core": "^7.17.10",
     "@babel/preset-env": "^7.17.10",
     "@babel/preset-typescript": "^7.16.7",
+    "@types/lodash.pick": "4.4.9",
     "tslib": "^2.2.0",
-    "typescript": "4.5.4"
+    "typescript": "4.5.4",
+    "@types/react": "^18.3.3"
   },
   "gitHead": "eb30b875d53c5e08e46e3f6d1061e2bb9c7e4d95"
 }
